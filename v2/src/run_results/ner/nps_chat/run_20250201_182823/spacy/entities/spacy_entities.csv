@@ -1,0 +1,89 @@
+doc_id,text,label,start,end
+14,one,CARDINAL,26,29
+14,china,GPE,54,59
+17,one,CARDINAL,64,67
+17,one,CARDINAL,71,74
+25,a good day,DATE,15,25
+26,half,CARDINAL,70,74
+27,awrighty,DATE,0,8
+28,ohh,ORG,0,3
+28,today,DATE,16,21
+30,huggs everyone,ORG,0,14
+84,ya,PERSON,12,14
+87,Daveeee,PERSON,4,11
+90,Heyyy,PERSON,0,5
+101,cepn fir,PERSON,8,16
+112,george clooney,PERSON,10,24
+116,george clooney,PERSON,0,14
+122,hii,ORG,0,3
+143,2,CARDINAL,0,1
+156,7,CARDINAL,19,20
+158,dem,NORP,34,37
+159,ya...hugggs,PERSON,16,27
+164,hahaha,GPE,33,39
+169,today,DATE,17,22
+171,today,DATE,15,20
+180,sigh sigh,PERSON,6,15
+183,LOL,ORG,12,15
+213,hii,ORG,0,3
+231,lmao waitin,PERSON,0,11
+234,today,DATE,36,41
+235,hahaha,PERSON,0,6
+257,Tigers,ORG,37,43
+277,this morning,TIME,12,24
+285,noooooooooo,PERSON,0,11
+293,today,DATE,28,33
+294,tonight,TIME,22,29
+295,###,MONEY,44,47
+296,about five minutes,TIME,53,71
+305,omg,PERSON,0,3
+306,orta,PERSON,36,40
+325,albert,PERSON,3,9
+331,st louis,GPE,63,71
+331,5 years,DATE,76,83
+334,1.98,CARDINAL,13,17
+336,ya go,PERSON,25,30
+345,st louis,GPE,9,17
+345,a year,DATE,22,28
+345,Mo,PERSON,36,38
+345,this last year,DATE,57,71
+361,gon,ORG,0,3
+362,today,DATE,32,37
+364,Tim,PERSON,12,15
+365,albert,PERSON,7,13
+376,fer da st louis,PERSON,12,27
+383,redneck city,ORG,0,12
+390,1/2,CARDINAL,38,41
+398,eeewww,PERSON,0,6
+400,ya,PERSON,0,2
+400,ya mowin,PERSON,33,41
+432,kansas,GPE,33,39
+437,god,PERSON,5,8
+438,Judy,PERSON,7,11
+439,deop,PERSON,1,5
+447,hii,ORG,0,3
+450,one,CARDINAL,3,6
+480,grrl,ORG,6,10
+483,hii,ORG,0,3
+486,heyyyyy,PERSON,0,7
+496,cough cough,ORG,0,11
+529,one,CARDINAL,3,6
+543,fir a minute,TIME,35,47
+543,fir pm'n,DATE,81,89
+547,1,CARDINAL,5,6
+566,jus hopin,PERSON,4,13
+569,awww,GPE,0,4
+584,the last hour,TIME,30,43
+585,whoo hooooo,ORG,0,11
+587,ya dint,PERSON,0,7
+593,one hour ago,TIME,0,12
+595,damn puter,PERSON,0,10
+603,a decent hour,TIME,17,30
+605,2nd,ORDINAL,11,14
+617,the night,TIME,93,102
+644,ewwwwwww,PERSON,42,50
+646,g'day,DATE,0,5
+666,next weekend,DATE,16,28
+669,today,DATE,32,37
+677,ya,PERSON,48,50
+680,hugggs,PERSON,5,11

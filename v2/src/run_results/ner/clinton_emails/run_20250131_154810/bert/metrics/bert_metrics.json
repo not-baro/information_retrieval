@@ -1,0 +1,14 @@
+{
+    "execution_time": 224.67606019973755,
+    "n_documents": 6711,
+    "n_entities": 3838,
+    "avg_entities_per_doc": 0.5718968857100283,
+    "unique_entity_types": 4,
+    "entity_type_distribution": {
+        "I-PER": 1153,
+        "I-MISC": 1054,
+        "I-LOC": 1028,
+        "I-ORG": 603
+    },
+    "avg_confidence": 0.7712291479110718
+}

@@ -1,0 +1,172 @@
+[
+    {
+        "Topic": -1,
+        "Count": 5398,
+        "Name": "-1_enron_ect_subject_the",
+        "Representation": [
+            "enron",
+            "ect",
+            "subject",
+            "the",
+            "please",
+            "would",
+            "power",
+            "from",
+            "message",
+            "thanks"
+        ]
+    },
+    {
+        "Topic": 0,
+        "Count": 3964,
+        "Name": "0_enron_20_the_ect",
+        "Representation": [
+            "enron",
+            "20",
+            "the",
+            "ect",
+            "said",
+            "power",
+            "energy",
+            "email",
+            "please",
+            "would"
+        ]
+    },
+    {
+        "Topic": 1,
+        "Count": 208,
+        "Name": "1_font_td_align_nbsp",
+        "Representation": [
+            "font",
+            "td",
+            "align",
+            "nbsp",
+            "width",
+            "size1",
+            "http",
+            "tr",
+            "href",
+            "color"
+        ]
+    },
+    {
+        "Topic": 2,
+        "Count": 188,
+        "Name": "2_error_database_final_2a04",
+        "Representation": [
+            "error",
+            "database",
+            "final",
+            "2a04",
+            "borland",
+            "initialize",
+            "engine",
+            "hour",
+            "attempting",
+            "occurred"
+        ]
+    },
+    {
+        "Topic": 3,
+        "Count": 113,
+        "Name": "3_font_classtd2_td_updated",
+        "Representation": [
+            "font",
+            "classtd2",
+            "td",
+            "updated",
+            "game",
+            "week",
+            "texas",
+            "play",
+            "href",
+            "size2"
+        ]
+    },
+    {
+        "Topic": 4,
+        "Count": 47,
+        "Name": "4_file_attached_see_msn",
+        "Representation": [
+            "file",
+            "attached",
+            "see",
+            "msn",
+            "explorer",
+            "download",
+            "explorermsncomintlasp",
+            "free",
+            "hpl0913xls",
+            "reportxls"
+        ]
+    },
+    {
+        "Topic": 5,
+        "Count": 31,
+        "Name": "5_attached_see_please_articles",
+        "Representation": [
+            "attached",
+            "see",
+            "please",
+            "articles",
+            "sarimah",
+            "article",
+            "black",
+            "kind",
+            "newsbbccoukhienglishworldsouthasianewsid10480001048917stm",
+            "2001"
+        ]
+    },
+    {
+        "Topic": 6,
+        "Count": 24,
+        "Name": "6_http_todaysheadlines_news_todaysheadline",
+        "Representation": [
+            "http",
+            "todaysheadlines",
+            "news",
+            "todaysheadline",
+            "more",
+            "new",
+            "the",
+            "york",
+            "world",
+            "bush"
+        ]
+    },
+    {
+        "Topic": 7,
+        "Count": 11,
+        "Name": "7_eei_dated_copies_executed",
+        "Representation": [
+            "eei",
+            "dated",
+            "copies",
+            "executed",
+            "received",
+            "master",
+            "referenced",
+            "legal",
+            "purchase",
+            "credit"
+        ]
+    },
+    {
+        "Topic": 8,
+        "Count": 10,
+        "Name": "8_mwh_temperatures_000_the",
+        "Representation": [
+            "mwh",
+            "temperatures",
+            "000",
+            "the",
+            "peak",
+            "050",
+            "prices",
+            "weather",
+            "planned",
+            "expected"
+        ]
+    }
+]

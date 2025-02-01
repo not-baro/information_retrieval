@@ -1,0 +1,172 @@
+[
+    {
+        "Topic": -1,
+        "Count": 2221,
+        "Name": "-1_join_lol_like_action",
+        "Representation": [
+            "join",
+            "lol",
+            "like",
+            "action",
+            "get",
+            "got",
+            "good",
+            "seen",
+            "welcome",
+            "man"
+        ]
+    },
+    {
+        "Topic": 0,
+        "Count": 3824,
+        "Name": "0_lol_action_chat_hey",
+        "Representation": [
+            "lol",
+            "action",
+            "chat",
+            "hey",
+            "wan",
+            "hiya",
+            "good",
+            "hello",
+            "lmao",
+            "everyone"
+        ]
+    },
+    {
+        "Topic": 1,
+        "Count": 2362,
+        "Name": "1_part_join_adultsuser35_mode",
+        "Representation": [
+            "part",
+            "join",
+            "adultsuser35",
+            "mode",
+            "19teens",
+            "nick",
+            "hey",
+            "adultsuser105",
+            "lol",
+            "adultsuser28"
+        ]
+    },
+    {
+        "Topic": 2,
+        "Count": 607,
+        "Name": "2_suser31_suser17_suser121_suser156",
+        "Representation": [
+            "suser31",
+            "suser17",
+            "suser121",
+            "suser156",
+            "hey",
+            "suser9",
+            "action",
+            "suser6",
+            "suser21",
+            "suser34"
+        ]
+    },
+    {
+        "Topic": 3,
+        "Count": 201,
+        "Name": "3_room_cat_home_near",
+        "Representation": [
+            "room",
+            "cat",
+            "home",
+            "near",
+            "florida",
+            "hello",
+            "aberdeen",
+            "est",
+            "shore",
+            "south"
+        ]
+    },
+    {
+        "Topic": 4,
+        "Count": 103,
+        "Name": "4_song_music_mp3_player",
+        "Representation": [
+            "song",
+            "music",
+            "mp3",
+            "player",
+            "listening",
+            "action",
+            "seconds",
+            "13cute",
+            "liam",
+            "played"
+        ]
+    },
+    {
+        "Topic": 5,
+        "Count": 34,
+        "Name": "5_elbows_meds_knees_drugs",
+        "Representation": [
+            "elbows",
+            "meds",
+            "knees",
+            "drugs",
+            "need",
+            "alzheimers",
+            "deal",
+            "elle",
+            "help",
+            "maybe"
+        ]
+    },
+    {
+        "Topic": 6,
+        "Count": 26,
+        "Name": "6_perv_pervs_pervin_perving",
+        "Representation": [
+            "perv",
+            "pervs",
+            "pervin",
+            "perving",
+            "phone",
+            "perved",
+            "pervert",
+            "quit",
+            "get",
+            "didnt"
+        ]
+    },
+    {
+        "Topic": 7,
+        "Count": 12,
+        "Name": "7_nic_nakey_fallout_smallfry",
+        "Representation": [
+            "nic",
+            "nakey",
+            "fallout",
+            "smallfry",
+            "prrty",
+            "plus",
+            "odd",
+            "nicname",
+            "unique",
+            "cepn"
+        ]
+    },
+    {
+        "Topic": 8,
+        "Count": 10,
+        "Name": "8_moving_fast_long_lag",
+        "Representation": [
+            "moving",
+            "fast",
+            "long",
+            "lag",
+            "turned",
+            "speed",
+            "defragging",
+            "disc",
+            "extensions",
+            "faster"
+        ]
+    }
+]

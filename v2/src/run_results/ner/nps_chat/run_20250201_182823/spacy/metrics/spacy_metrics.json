@@ -1,0 +1,18 @@
+{
+    "execution_time": 1.513179063796997,
+    "n_documents": 684,
+    "n_entities": 88,
+    "avg_entities_per_doc": 0.1286549707602339,
+    "unique_entity_types": 9,
+    "entity_type_distribution": {
+        "PERSON": 32,
+        "DATE": 15,
+        "ORG": 13,
+        "CARDINAL": 11,
+        "TIME": 8,
+        "GPE": 6,
+        "NORP": 1,
+        "MONEY": 1,
+        "ORDINAL": 1
+    }
+}

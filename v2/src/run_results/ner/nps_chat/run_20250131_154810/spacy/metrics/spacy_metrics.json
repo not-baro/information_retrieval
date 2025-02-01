@@ -1,0 +1,26 @@
+{
+    "execution_time": 19.67675805091858,
+    "n_documents": 10296,
+    "n_entities": 1682,
+    "avg_entities_per_doc": 0.16336441336441337,
+    "unique_entity_types": 17,
+    "entity_type_distribution": {
+        "PERSON": 569,
+        "ORG": 289,
+        "GPE": 252,
+        "CARDINAL": 158,
+        "DATE": 131,
+        "TIME": 91,
+        "PRODUCT": 77,
+        "NORP": 54,
+        "ORDINAL": 33,
+        "QUANTITY": 6,
+        "MONEY": 5,
+        "WORK_OF_ART": 5,
+        "FAC": 4,
+        "LAW": 4,
+        "EVENT": 2,
+        "LANGUAGE": 1,
+        "LOC": 1
+    }
+}

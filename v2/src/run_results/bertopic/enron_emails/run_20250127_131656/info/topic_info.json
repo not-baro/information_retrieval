@@ -1,0 +1,172 @@
+[
+    {
+        "Topic": -1,
+        "Count": 5148,
+        "Name": "-1_subject_please_enron_would",
+        "Representation": [
+            "subject",
+            "please",
+            "enron",
+            "would",
+            "message",
+            "thanks",
+            "email",
+            "sent",
+            "know",
+            "2001"
+        ]
+    },
+    {
+        "Topic": 0,
+        "Count": 4276,
+        "Name": "0_enron_power_said_energy",
+        "Representation": [
+            "enron",
+            "power",
+            "said",
+            "energy",
+            "new",
+            "subject",
+            "please",
+            "would",
+            "company",
+            "email"
+        ]
+    },
+    {
+        "Topic": 1,
+        "Count": 255,
+        "Name": "1_alias_dbcaps97data_database_final",
+        "Representation": [
+            "alias",
+            "dbcaps97data",
+            "database",
+            "final",
+            "unknown",
+            "hourahead",
+            "hour",
+            "schedule",
+            "disk",
+            "detected"
+        ]
+    },
+    {
+        "Topic": 2,
+        "Count": 95,
+        "Name": "2_port_please_distribution_x66002",
+        "Representation": [
+            "port",
+            "please",
+            "distribution",
+            "x66002",
+            "espinoza",
+            "contact",
+            "ports",
+            "veronica",
+            "attached",
+            "viewing"
+        ]
+    },
+    {
+        "Topic": 3,
+        "Count": 84,
+        "Name": "3_thanks_call_excuse_thats",
+        "Representation": [
+            "thanks",
+            "call",
+            "excuse",
+            "thats",
+            "done",
+            "know",
+            "great",
+            "fine",
+            "give",
+            "good"
+        ]
+    },
+    {
+        "Topic": 4,
+        "Count": 45,
+        "Name": "4_hpl_tap_teco_iferc",
+        "Representation": [
+            "hpl",
+            "tap",
+            "teco",
+            "iferc",
+            "file",
+            "attached",
+            "see",
+            "enron",
+            "40000",
+            "20000"
+        ]
+    },
+    {
+        "Topic": 5,
+        "Count": 39,
+        "Name": "5_outlook_mailbox_migration_items",
+        "Representation": [
+            "outlook",
+            "mailbox",
+            "migration",
+            "items",
+            "size",
+            "migrated",
+            "button",
+            "owa",
+            "notes",
+            "folder"
+        ]
+    },
+    {
+        "Topic": 6,
+        "Count": 23,
+        "Name": "6_blackberry_handheld_wireless_wwwblackberrynet",
+        "Representation": [
+            "blackberry",
+            "handheld",
+            "wireless",
+            "wwwblackberrynet",
+            "sent",
+            "ricki",
+            "jafry",
+            "rahil",
+            "hafrank",
+            "karthik"
+        ]
+    },
+    {
+        "Topic": 7,
+        "Count": 13,
+        "Name": "7_eei_dated_sale_master",
+        "Representation": [
+            "eei",
+            "dated",
+            "sale",
+            "master",
+            "executed",
+            "purchase",
+            "copies",
+            "ferenced",
+            "ceived",
+            "agreement"
+        ]
+    },
+    {
+        "Topic": 8,
+        "Count": 13,
+        "Name": "8_robin_positions_rodriguehouect_let",
+        "Representation": [
+            "robin",
+            "positions",
+            "rodriguehouect",
+            "let",
+            "know",
+            "mkt",
+            "thanks",
+            "looks",
+            "muchhave",
+            "forwarded"
+        ]
+    }
+]

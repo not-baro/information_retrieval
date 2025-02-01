@@ -1,0 +1,104 @@
+[
+    {
+        "Topic": -1,
+        "Count": 1916,
+        "Name": "-1_would_state_said_also",
+        "Representation": [
+            "would",
+            "state",
+            "said",
+            "also",
+            "call",
+            "new",
+            "one",
+            "work",
+            "time",
+            "like"
+        ]
+    },
+    {
+        "Topic": 0,
+        "Count": 3404,
+        "Name": "0_state_office_would_said",
+        "Representation": [
+            "state",
+            "office",
+            "would",
+            "said",
+            "house",
+            "one",
+            "president",
+            "new",
+            "obama",
+            "secretarys"
+        ]
+    },
+    {
+        "Topic": 1,
+        "Count": 1044,
+        "Name": "1_fyi_thx_yes_good",
+        "Representation": [
+            "fyi",
+            "thx",
+            "yes",
+            "good",
+            "see",
+            "roger",
+            "great",
+            "thanks",
+            "sounds",
+            "agree"
+        ]
+    },
+    {
+        "Topic": 2,
+        "Count": 179,
+        "Name": "2_print_pls_pis_hrc",
+        "Representation": [
+            "print",
+            "pls",
+            "pis",
+            "hrc",
+            "copy",
+            "oscar",
+            "copies",
+            "printed",
+            "cdm",
+            "also"
+        ]
+    },
+    {
+        "Topic": 3,
+        "Count": 142,
+        "Name": "3_lease_part_14d_14b",
+        "Representation": [
+            "lease",
+            "part",
+            "14d",
+            "14b",
+            "declassify",
+            "b5b6",
+            "ason",
+            "2009",
+            "leased",
+            "call"
+        ]
+    },
+    {
+        "Topic": 4,
+        "Count": 26,
+        "Name": "4_importance_high_fyi_iffwould",
+        "Representation": [
+            "importance",
+            "high",
+            "fyi",
+            "iffwould",
+            "armeniaturkey",
+            "averted",
+            "graduatehowarduniversitystudentbeatstheodds050710",
+            "handwritten",
+            "accomplishment",
+            "emphasize"
+        ]
+    }
+]

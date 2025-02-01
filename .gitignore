@@ -1,6 +1,9 @@
 # exclude files in datasets folders
 v1/
 datasets/
+test/
+models/
+old_results/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
