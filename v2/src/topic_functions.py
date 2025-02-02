@@ -9,6 +9,8 @@ from sklearn.decomposition import LatentDirichletAllocation
 from bertopic import BERTopic
 import time
 from datetime import datetime
+import pandas as pd
+import matplotlib.pyplot as plt
 
 def load_lda_model(dataset, output_folder):
     """
@@ -104,6 +106,33 @@ def run_lda(texts, n_components=3, max_df=0.95, min_df=2, stop_words='english', 
     
     return lda, vectorizer, n_components, lda_topics, lda_coherence, perplexity, topic_diversity, lda_time
 
+
+def get_topic_assignments_lda(df, lda, vectorizer, lda_texts, n_components):
+# Get topic assignments for each document
+# lda.transform() returns document-topic distribution matrix
+    doc_topic_dist = lda.transform(vectorizer.transform(lda_texts))
+
+    # Get the dominant topic for each document by taking argmax
+    # This gives us the topic number with highest probability for each doc
+    dominant_topics = doc_topic_dist.argmax(axis=1)
+
+    # Create DataFrame with document IDs and their dominant topics
+    # We use clinton_emails['Id'] that corresponds to non-null LdaText entries
+    topic_assignments = pd.DataFrame({
+        'Id': df[df['LdaText'].notna()]['Id'].values,
+        'Dominant_Topic': dominant_topics
+    })
+
+    # Plot the distribution of topics
+    plt.figure(figsize=(10, 6))
+    plt.hist(dominant_topics, bins=n_components, edgecolor='k', alpha=0.7)
+    plt.xlabel('Topic')
+    plt.ylabel('Number of Documents')
+    plt.title('Distribution of Topics')
+    plt.xticks(range(n_components))
+    plt.show()
+
+    return topic_assignments
 def save_bertopic_model(dataset, output_folder, results, timestamp):
     """
     Save the BERTopic model, topics, and metrics in separate files within a timestamped subfolder.

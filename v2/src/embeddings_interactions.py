@@ -14,7 +14,6 @@ def run_embeddings_chat(df):
 
     df.rename(columns={"Content": "Message"}, inplace=True)
 
-
     # Initialize sentence transformer model
     model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
 
@@ -38,7 +37,6 @@ def run_embeddings_chat(df):
     # Create directed graph
     G = nx.DiGraph()
 
-    # Store interactions
     interactions = []
 
     # Process each message to find question-response pairs
@@ -81,7 +79,7 @@ def draw_interaction_network(G, title="Question-Response Interaction Network"):
     plt.title(title)
     plt.show()
 
-def analyze_email_dialogues(df, output_folder="run_results/dialogues", dataset="clinton_emails", timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")):
+def analyze_email_dialogues(df, output_folder="run_results/dialogues", dataset='clinton_emails', timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")):
     """
     Analyze email dialogues and save results.
     
@@ -100,6 +98,8 @@ def analyze_email_dialogues(df, output_folder="run_results/dialogues", dataset="
     #     return email.lower() if email else str(addr).lower()
     
     print("Analyzing email dialogues...")
+    if 'DateSent' not in df.columns:
+        df['DateSent'] = pd.Timestamp.today().normalize()
     # Create network graph
     G = nx.DiGraph()
     
@@ -130,10 +130,9 @@ def analyze_email_dialogues(df, output_folder="run_results/dialogues", dataset="
     interactions_df = pd.DataFrame(interactions)
     
     # Save results
-    save_df(interactions_df, "user_interactions.csv", "dialogues", dataset, timestamp)
+    save_df(interactions_df, "user_interactions.csv", output_folder, dataset, timestamp)
     
     return G, interactions_df
-
 
 
 def visualize_dialogue_patterns(G, interactions_df, title_prefix="Email"):
@@ -172,3 +171,68 @@ def visualize_dialogue_patterns(G, interactions_df, title_prefix="Email"):
         plt.ylabel("Number of Communications")
         plt.tight_layout()
         plt.show()
+
+
+def analyze_communities(G):
+    """
+    Analyze the communities in the interaction graph using alternative algorithms.
+    Returns a dictionary mapping nodes to their communities.
+    """
+    try:
+        # Method 1: Girvan-Newman
+        communities_generator = nx.community.girvan_newman(G)
+        communities = next(communities_generator)
+        
+        # Convert the result into a dictionary node -> community_id
+        partition = {}
+        for community_id, community in enumerate(communities):
+            for node in community:
+                partition[node] = community_id
+                
+    except Exception as e:
+        print(f"Girvan-Newman failed, using connected components: {str(e)}")
+        # Fallback: Use connected components as communities
+        communities = nx.connected_components(G.to_undirected())
+        partition = {}
+        for community_id, community in enumerate(communities):
+            for node in community:
+                partition[node] = community_id
+    
+    return partition
+
+def draw_community_network(G, partition, title="Email Communication Network with Communities"):
+    """
+    Display the graph with communities highlighted by different colors.
+    """
+    plt.figure(figsize=(12, 8))
+    pos = nx.spring_layout(G)
+    
+    # Prepare colors for the nodes
+    colors = [partition[node] for node in G.nodes()]
+    
+    # Draw the graph
+    nx.draw(G, pos, 
+           node_color=colors,
+           with_labels=True, 
+           cmap=plt.cm.tab20, 
+           node_size=200, 
+           font_size=8, 
+           edge_color="gray",
+           arrows=True)
+    
+    plt.title(title)
+    plt.show()
+    
+    # Print some statistics about the communities
+    n_communities = len(set(partition.values()))
+    print(f"\nNumber of communities found: {n_communities}")
+    
+    # Size of the communities
+    community_sizes = {}
+    for community_id in set(partition.values()):
+        size = sum(1 for v in partition.values() if v == community_id)
+        community_sizes[community_id] = size
+    
+    print("\nSize of the communities:")
+    for comm_id, size in sorted(community_sizes.items(), key=lambda x: x[1], reverse=True):
+        print(f"Community {comm_id}: {size} members")

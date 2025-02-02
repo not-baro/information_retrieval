@@ -14,7 +14,8 @@ def save_df(df, filename, output_folder, dataset, timestamp):
     dataset: Name of the dataset.
     timestamp: Timestamp to create unique folder.
     """
-    output_folder = f"{output_folder}/{dataset}/{timestamp}"
+    print(f"Saving results in: {output_folder}/{dataset}/run_{timestamp}")
+    output_folder = f"{output_folder}/{dataset}/run_{timestamp}"
     os.makedirs(output_folder, exist_ok=True)
     output_path = os.path.join(output_folder, filename)
     df.to_csv(output_path, index=False)
