@@ -6,8 +6,8 @@ import time
 import matplotlib.pyplot as plt
 import seaborn as sns
 import json
-from datetime import datetime
 from transformers import pipeline
+from utils import save_df
 
 def run_ner_spacy(texts, model_name="en_core_web_sm"):
     """
@@ -131,10 +131,12 @@ def save_ner_results(dataset, output_folder, model_type, results, timestamp):
     for subfolder in ["entities", "metrics"]:
         os.makedirs(os.path.join(run_folder, subfolder), exist_ok=True)
     
-    # Save entities
-    print("Saving entities...")
-    entities_path = os.path.join(run_folder, "entities", f"{model_type}_entities.csv")
-    results['entities'].to_csv(entities_path, index=False)
+    # # Save entities
+    # print("Saving entities...")
+    # entities_path = os.path.join(run_folder, "entities", f"{model_type}_entities.csv")
+    # results['entities'].to_csv(entities_path, index=False)
+
+    save_df(results['entities'], os.path.join(run_folder, "entities", f"{model_type}_entities.csv"))
     
     # Convert numpy types to Python native types for JSON serialization
     metrics = results['metrics'].copy()

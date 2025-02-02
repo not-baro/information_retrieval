@@ -1,9 +1,14 @@
 from sentence_transformers import SentenceTransformer, util
 import networkx as nx
 import pandas as pd
-import os
 import re
 import matplotlib.pyplot as plt
+from tqdm import tqdm
+from datetime import datetime
+from email.utils import parseaddr
+import seaborn as sns
+
+from utils import save_df
 
 def run_embeddings_chat(df):
 
@@ -76,8 +81,94 @@ def draw_interaction_network(G, title="Question-Response Interaction Network"):
     plt.title(title)
     plt.show()
 
-def save_interactions_df(dataset, output_folder, results, timestamp):
-    output_folder = f"{output_folder}/{dataset}/{timestamp}"
-    os.makedirs(output_folder, exist_ok=True)
-    output_path = os.path.join(output_folder, "user_interactions.csv")
-    results.to_csv(output_path, index=False)
+def analyze_email_dialogues(df, output_folder="run_results/dialogues", dataset="clinton_emails", timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")):
+    """
+    Analyze email dialogues and save results.
+    
+    Args:
+    df: DataFrame containing Clinton emails
+    output_folder: Base output folder path
+    dataset: Name of the dataset
+    
+    Returns:
+    Tuple of (NetworkX Graph, DataFrame of interactions)
+    """
+    
+    # def clean_email_address(addr):
+    #     """Clean and standardize email addresses"""
+    #     _, email = parseaddr(str(addr))
+    #     return email.lower() if email else str(addr).lower()
+    
+    print("Analyzing email dialogues...")
+    # Create network graph
+    G = nx.DiGraph()
+    
+    interactions = []
+    
+    # Process emails
+    for _, row in tqdm(df.iterrows(), total=len(df), desc="Processing emails"):
+        sender = row['Sender']
+        
+        # Process recipients
+        if pd.notna(row['Recipient']):
+            recipients = [r for r in str(row['Recipient']).split(';')]
+            
+            # Add edges to graph and record interactions
+            for recipient in recipients:
+                # Update edge weight
+                weight = G.get_edge_data(sender, recipient, {'weight': 0})['weight'] + 1
+                G.add_edge(sender, recipient, weight=weight)
+                
+                interactions.append({
+                    'sender': sender,
+                    'recipient': recipient,
+                    'date': row['DateSent'],
+                    'subject': row['Subject'],
+                    'weight': weight
+                })
+    
+    interactions_df = pd.DataFrame(interactions)
+    
+    # Save results
+    save_df(interactions_df, "user_interactions.csv", "dialogues", dataset, timestamp)
+    
+    return G, interactions_df
+
+
+
+def visualize_dialogue_patterns(G, interactions_df, title_prefix="Email"):
+    """
+    Create visualizations for dialogue analysis.
+    
+    Args:
+    G: NetworkX graph of interactions
+    interactions_df: DataFrame of interactions
+    title_prefix: Prefix for plot titles
+    """
+    # Network Graph
+    plt.figure(figsize=(12, 8))
+    draw_interaction_network(G, f"{title_prefix} Communication Network")
+    
+    # Top Participants
+    plt.figure(figsize=(12, 6))
+    top_senders = dict(G.out_degree(weight='weight'))
+    top_senders_df = pd.DataFrame.from_dict(top_senders, orient='index', 
+                                          columns=['Messages Sent']).sort_values('Messages Sent', 
+                                                                              ascending=False).head(10)
+    sns.barplot(data=top_senders_df, x=top_senders_df.index, y='Messages Sent')
+    plt.xticks(rotation=45, ha='right')
+    plt.title(f"Top {title_prefix} Senders")
+    plt.tight_layout()
+    plt.show()
+    
+    # Communication Over Time
+    if 'date' in interactions_df.columns:
+        plt.figure(figsize=(12, 6))
+        interactions_df['date'] = pd.to_datetime(interactions_df['date'])
+        daily_counts = interactions_df.groupby(interactions_df['date'].dt.date).size()
+        daily_counts.plot(kind='line')
+        plt.title(f"{title_prefix} Communications Over Time")
+        plt.xlabel("Date")
+        plt.ylabel("Number of Communications")
+        plt.tight_layout()
+        plt.show()

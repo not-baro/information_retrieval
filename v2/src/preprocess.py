@@ -6,10 +6,7 @@ from tqdm import tqdm
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
-# from wordcloud import WordCloud, STOPWORDS
-# import pickle
-# import json
-# from PIL import Image
+
 
 def preprocess_body_text(text):
     """
