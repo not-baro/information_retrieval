@@ -11,7 +11,12 @@ import seaborn as sns
 from utils import save_df
 
 def run_embeddings_chat(df):
-
+    """
+    Run embeddings for chat dialogues.
+    
+    :param df: DataFrame containing chat dialogues
+    :return: NetworkX graph and interactions DataFrame
+    """
     df.rename(columns={"Content": "Message"}, inplace=True)
 
     # Initialize sentence transformer model

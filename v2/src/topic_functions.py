@@ -109,8 +109,18 @@ def run_lda(texts, n_components=3, max_df=0.95, min_df=2, stop_words='english', 
 
 
 def get_topic_assignments_lda(df, lda, vectorizer, lda_texts, n_components):
-# Get topic assignments for each document
-# lda.transform() returns document-topic distribution matrix
+    """
+    Get topic assignments for each document using LDA.
+    
+    :param df: DataFrame containing the documents
+    :param lda: Trained LDA model
+    :param vectorizer: CountVectorizer used for the LDA model
+    :param lda_texts: List of preprocessed text documents
+    :param n_components: Number of topics
+    :return: DataFrame with document IDs and their dominant topics
+    """
+    # Get topic assignments for each document
+    # lda.transform() returns document-topic distribution matrix
     doc_topic_dist = lda.transform(vectorizer.transform(lda_texts))
 
     # Get the dominant topic for each document by taking argmax
