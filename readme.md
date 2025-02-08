@@ -1,7 +1,7 @@
 
 # Write me project -  Information retrieval
 
-A comprehensive NLP pipeline for analyzing email and chat communications using various techniques including Named Entity Recognition, Topic Modeling, and Dialogue Analysis. -
+A comprehensive NLP pipeline for analyzing email and chat communications using various techniques.
 
 ## Setup
 
