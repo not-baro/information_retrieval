@@ -136,7 +136,7 @@ def save_ner_results(dataset, output_folder, model_type, results, timestamp):
     # entities_path = os.path.join(run_folder, "entities", f"{model_type}_entities.csv")
     # results['entities'].to_csv(entities_path, index=False)
 
-    save_df(results['entities'], os.path.join(run_folder, "entities", f"{model_type}_entities.csv"))
+    save_df(results['entities'], os.path.join(run_folder, "entities", f"{model_type}_entities.csv"), dataset, timestamp)
     
     # Convert numpy types to Python native types for JSON serialization
     metrics = results['metrics'].copy()
@@ -168,7 +168,7 @@ def visualize_ner_results(results, title_prefix=""):
     """
     df = results['entities']
     
-    # 1. Entity Type Distribution
+    # Entity Type Distribution
     plt.figure(figsize=(15, 6))
     sns.countplot(data=df, y='label', order=df['label'].value_counts().index)
     plt.title(f'{title_prefix} Entity Type Distribution')
@@ -177,7 +177,7 @@ def visualize_ner_results(results, title_prefix=""):
     plt.tight_layout()
     plt.show()
     
-    # 2. Top Entities per Type
+    # Top Entities per Type
     plt.figure(figsize=(20, 4 * (len(df['label'].unique()) + 1) // 2))
     for i, label in enumerate(df['label'].unique(), 1):
         plt.subplot((len(df['label'].unique()) + 1) // 2, 2, i)
@@ -188,7 +188,7 @@ def visualize_ner_results(results, title_prefix=""):
     plt.tight_layout()
     plt.show()
     
-    # 3. If BERT results, show confidence distribution
+    # If BERT results, show confidence distribution
     if 'score' in df.columns:
         plt.figure(figsize=(10, 6))
         sns.histplot(data=df, x='score', bins=50)

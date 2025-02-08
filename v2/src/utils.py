@@ -54,7 +54,7 @@ def save_lda_model(dataset, output_folder, lda, lda_topics, lda_coherence, perpl
     model_path = os.path.join(run_folder, "models", "lda_model.pkl")
     with open(model_path, "wb") as f:
         pickle.dump(lda, f)
-    print(f"Modello LDA salvato in: {model_path}")
+    print(f"LDA model saved in: {model_path}")
 
     # Save the extracted topics in a JSON file
     topics_data = {
@@ -64,7 +64,7 @@ def save_lda_model(dataset, output_folder, lda, lda_topics, lda_coherence, perpl
     topics_path = os.path.join(run_folder, "topics", "lda_topics.json")
     with open(topics_path, "w") as f:
         json.dump(topics_data, f, indent=4)
-    print(f"Topic salvati in: {topics_path}")
+    print(f"Topics saved in: {topics_path}")
 
     # Save the metrics and parameters in a JSON file
     metrics_data = {
@@ -83,5 +83,5 @@ def save_lda_model(dataset, output_folder, lda, lda_topics, lda_coherence, perpl
     metrics_path = os.path.join(run_folder, "metrics", "lda_metrics.json")
     with open(metrics_path, "w") as f:
         json.dump(metrics_data, f, indent=4)
-    print(f"Metriche salvate in: {metrics_path}")
+    print(f"Metrics saved in: {metrics_path}")
 

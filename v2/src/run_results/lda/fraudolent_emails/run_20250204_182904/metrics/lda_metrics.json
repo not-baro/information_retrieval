@@ -1,0 +1,13 @@
+{
+    "coherence_score": 0.48378235699096545,
+    "perplexity": 2075.804630840582,
+    "topic_diversity": 0.725,
+    "execution_time": 5.8585498332977295,
+    "n_components": 6,
+    "max_df": 0.95,
+    "min_df": 2,
+    "stop_words": "english",
+    "max_iter": 15,
+    "random_state": 42,
+    "timestamp": "2025-02-04 18:46:14"
+}

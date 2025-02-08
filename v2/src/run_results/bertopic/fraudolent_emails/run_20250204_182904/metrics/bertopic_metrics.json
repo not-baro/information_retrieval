@@ -1,0 +1,14 @@
+{
+    "execution_time": 27.982054948806763,
+    "n_topics": 10,
+    "n_reduced_topics": 10,
+    "largest_topic_size": 1776,
+    "smallest_topic_size": 12,
+    "avg_topic_size": 294.3,
+    "total_documents": 2943,
+    "n_outliers": 706,
+    "outliers_ratio": 0.2398912674142032,
+    "topic_diversity": null,
+    "avg_topic_similarity": null,
+    "timestamp": "2025-02-04 18:46:46"
+}

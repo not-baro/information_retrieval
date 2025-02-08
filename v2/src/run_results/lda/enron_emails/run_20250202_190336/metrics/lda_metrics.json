@@ -3,7 +3,7 @@
     "perplexity": 3776.287440202547,
     "topic_diversity": 0.825,
     "execution_time": 10.49187684059143,
-    "n_components": 4,
+    "n_components": 6,
     "max_df": 0.95,
     "min_df": 2,
     "stop_words": "english",

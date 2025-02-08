@@ -75,8 +75,8 @@ def draw_interaction_network(G, title="Question-Response Interaction Network"):
     """
     plt.figure(figsize=(10, 6))
     pos = nx.spring_layout(G)
-    nx.draw(G, pos, with_labels=True, node_size=200, font_size=8, edge_color="gray", arrows=True)
-    plt.title(title)
+    nx.draw(G, pos, with_labels=False, node_size=200, font_size=8, edge_color="gray", arrows=True)
+    plt.title(title, fontsize=16, fontweight='bold')
     plt.show()
 
 def analyze_email_dialogues(df, output_folder="run_results/dialogues", dataset='clinton_emails', timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")):
@@ -200,7 +200,7 @@ def analyze_communities(G):
     
     return partition
 
-def draw_community_network(G, partition, title="Email Communication Network with Communities"):
+def draw_community_network(G, partition, title="Communication Network with Communities"):
     """
     Display the graph with communities highlighted by different colors.
     """
@@ -213,14 +213,14 @@ def draw_community_network(G, partition, title="Email Communication Network with
     # Draw the graph
     nx.draw(G, pos, 
            node_color=colors,
-           with_labels=True, 
+           with_labels=False, 
            cmap=plt.cm.tab20, 
            node_size=200, 
            font_size=8, 
            edge_color="gray",
            arrows=True)
     
-    plt.title(title)
+    plt.title(title, fontsize=16, fontweight='bold')
     plt.show()
     
     # Print some statistics about the communities

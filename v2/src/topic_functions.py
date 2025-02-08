@@ -11,6 +11,7 @@ import time
 from datetime import datetime
 import pandas as pd
 import matplotlib.pyplot as plt
+from wordcloud import WordCloud
 
 def load_lda_model(dataset, output_folder):
     """
@@ -294,8 +295,6 @@ def visualize_bertopics(bertopic_model, top_n_words=10, figsize=(20, 10)):
     :param top_n_words: Number of top words to show for each topic
     :param figsize: Size of the figure (width, height)
     """
-    import matplotlib.pyplot as plt
-    from wordcloud import WordCloud
     
     # Get topics and their info
     topics = bertopic_model.get_topics()
