@@ -6,6 +6,7 @@ models/
 old_results/
 dataset_papers/
 papers/
+latex/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

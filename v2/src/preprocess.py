@@ -33,10 +33,6 @@ def preprocess_text_for_lda(text):
         'forward', 'reply', 'sent', 'received', 'attached', 'attachment', 'copy',
         'download', 'upload', 'click', 'link', 'subscribe', 'unsubscribe',
         
-        # Email formalities
-        'dear', 'hello', 'hi', 'thanks', 'thank', 'regards', 'sincerely',
-        'best', 'wishes', 'please', 'kindly', 'let', 'know', 'asap',
-        
         # Previous technical terms
         'contenttype', 'charset', 'contenttransferencoding', 'base64', 
         'filename', 'npsb', 'fyi', 'thx', 'pls', 'plz', 'fwd', 're', 'fw',
@@ -47,9 +43,6 @@ def preprocess_text_for_lda(text):
         
         # Document related
         'document', 'file', 'pdf', 'doc', 'xls', 'attached', 'attachment',
-        
-        # Common business email terms
-        'questions', 'information', 'need', 'use', 'agreement', 'deal',
         
         # Names of days and months
         'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday',
@@ -134,6 +127,7 @@ def preprocess_text_for_lda(text):
 
 def preprocess_body_text(text):
     """
+    Old preprocess version - i'm not using this for analysis
     Preprocesses email body text by removing various unwanted elements.
     
     Args:
@@ -272,6 +266,15 @@ def preprocess_enron_df(email_text):
     }
 
 def preprocess_fraudolent_emails(email_text):
+    """
+    Preprocesses fraudolent emails by splitting them into individual emails and extracting relevant fields.
+    
+    Args:
+    email_text (str): The raw email text.
+    
+    Returns:
+    pd.DataFrame: A DataFrame containing the extracted emails with their fields.
+    """
 
     # Split the email using "From r" as delimiter
     fraudolent_emails_text = re.split(r"(?=From r)", email_text)
@@ -307,6 +310,15 @@ def preprocess_fraudolent_emails(email_text):
     # Function to parse a single XML file
 
 def parse_xml(file_path):
+    """
+    Parses an XML file and extracts relevant information.
+    
+    Args:
+    file_path (str): The path to the XML file.  
+    
+    Returns:
+    list: A list of dictionaries containing the extracted information.
+    """
     tree = ET.parse(file_path)
     root = tree.getroot()
     data = []
@@ -331,182 +343,3 @@ def parse_xml(file_path):
         })
 
     return data
-
-def preprocess_text_for_lda(text):
-    """
-    Preprocesses text for LDA topic modeling with comprehensive cleaning patterns.
-    """
-    # Expanded technical words and email-related terms
-    tech_words = {
-        'contenttype', 'contenttransferencoding', 'charset', 'base64', 
-        'multipart', 'mime', 'quoted', 'printable', 'encoding', 'encoded',
-        'attachment', 'boundary', 'content', 'type', 'transfer', 'plain', 'text',
-        
-        # Email client terms
-        'subject', 'forwarded', 'message', 'original', 'mail', 'email', 'sent', 
-        'received', 'from', 'to', 'cc', 'bcc', 'reply', 'forward',
-        
-        # Remove specific problematic terms we're seeing
-        'qzsoftdirectmailseperator', 'ivmnmwqldoui', 'psmswqhdzsynwz', 
-        'wyzcosnmxifdpi', 'multipart', 'mime',
-
-        # Email client terms
-        'subject', 'forwarded', 'message', 'original', 'mail', 'email', 'sent', 
-        'attached', 'attachment', 'contact', 'click', 'internet', 'com', 'org', 'net',
-        
-        # Common email actions/status
-        'forward', 'reply', 'sent', 'received', 'attached', 'attachment', 'copy',
-        'download', 'upload', 'click', 'link', 'subscribe', 'unsubscribe',
-        
-        # Email formalities
-        'dear', 'hello', 'hi', 'thanks', 'thank', 'regards', 'sincerely',
-        'best', 'wishes', 'please', 'kindly', 'let', 'know', 'asap',
-        
-        # Previous technical terms
-        'contenttype', 'charset', 'contenttransferencoding', 'base64', 
-        'filename', 'npsb', 'fyi', 'thx', 'pls', 'plz', 'fwd', 're', 'fw',
-        'attn', 'cc', 'bcc', 'ps', 'nb', 'ref', 'cdm', 'nt',
-        
-        # Meeting related
-        'meeting', 'schedule', 'appointment', 'calendar', 'agenda',
-        
-        # Document related
-        'document', 'file', 'pdf', 'doc', 'xls', 'attached', 'attachment',
-        
-        # Common business email terms
-        'questions', 'information', 'need', 'use', 'agreement', 'deal',
-        
-        # Names of days and months
-        'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday',
-        'january', 'february', 'march', 'april', 'may', 'june', 'july',
-        'august', 'september', 'october', 'november', 'december'
-    }
-
-    # Remove HTML and email attachments
-    patterns_to_remove = [
-        # Remove HTML and email attachments
-        (r'<[^>]+>|_secatt_.*?(?=\s|$)', ''),
-        
-        # Remove email headers completely
-        (r'(?i)^(?:subject|from|to|cc|bcc|sent|date|importance):\s*.*$\n?', '', re.MULTILINE),
-        
-        # Remove forwarded/replied message headers
-        (r'(?i)(?:^|\n)[-]+\s*(?:forwarded|original)\s+message\s*[-]+.*?(?=\n\n|\Z)', '', re.DOTALL),
-        
-        # Remove email signatures
-        (r'(?i)(?:^|\n)regards,.*?(?=\n\n|\Z)', '', re.DOTALL),
-        (r'(?i)(?:^|\n)best,.*?(?=\n\n|\Z)', '', re.DOTALL),
-        
-        # Remove common email client artifacts
-        (r'(?i)on.*wrote:', ''),
-        (r'(?i)>+\s*', ''),
-        
-        # Remove URLs and email addresses more aggressively
-        (r'(?i)https?://\S+', ''),
-        (r'(?i)www\.\S+', ''),
-        (r'(?i)\S+@\S+\.\S+', ''),
-        (r'(?i)\.com\b|\.org\b|\.net\b', ''),
-        
-        # Remove attachment indicators
-        (r'(?i)(?:attached|attachment|file):\s*\S+', ''),
-        
-        # Remove technical headers and encoding markers
-        (r'content[-_]?type\s*:\s*\S+', '', re.IGNORECASE),
-        (r'charset\S+', ''),
-        (r'contenttransferencoding\s+\S+', ''),
-        (r'contentdisposition\s+\S+', ''),
-        (r'base64\s+\S+', ''),
-        (r'quotedprintable\s+', ''),
-        
-        # Remove encoded characters and HTML entities
-        (r'\b\d{3,4}[âãäåæ]\b', ''),
-        (r'\b\d{4}[âãäåæ]\b', ''),
-        (r'&#\d+;', ''),
-        (r'&[a-z]+;', ''),
-        
-        # Remove long alphanumeric sequences
-        (r'\b[a-zA-Z0-9]{20,}\b', ''),
-        
-        # Remove short alphanumeric combinations
-        (r'\b\d[a-zA-Z]\b', ''),
-        (r'\b[a-zA-Z]\d\b', ''),
-        (r'\b\d{1,2}[a-zA-Z]\d{1,2}\b', ''),
-        
-        # Clean up remaining patterns
-        (r'\s+', ' ')
-    ]
-
-    # Apply all cleaning patterns
-    for pattern in patterns_to_remove:
-        if len(pattern) == 2:
-            text = re.sub(pattern[0], pattern[1], text)
-        else:
-            text = re.sub(pattern[0], pattern[1], text, flags=pattern[2])
-
-    # Tokenize and remove stopwords
-    tokens = word_tokenize(text.lower())
-    stop_words = set(stopwords.words('english'))
-    tokens = [
-        word for word in tokens 
-        if word not in stop_words 
-        and word.lower() not in tech_words  # Case insensitive check
-        and len(word) > 2
-        and not any(c.isdigit() for c in word)
-        and not word.startswith('http')
-        and not word.endswith('ed')  # Remove past tense verbs
-    ]
-    
-    return " ".join(tokens)
-
-def preprocess_text_for_ner(text):
-    """
-    Preprocesses text specifically for Named Entity Recognition.
-    Preserves capitalization, punctuation, and text structure while removing technical artifacts.
-    
-    Args:
-    text (str): The input text to be preprocessed
-    
-    Returns:
-    str: The cleaned text maintaining original formatting
-    """
-    patterns_to_remove = [
-        # Remove HTML and email attachments while preserving structure
-        (r'<[^>]+>', ' '),  # Replace HTML with space to maintain sentence structure
-        (r'_secatt_.*?(?=\s|$)', ' '),
-        
-        # Remove technical headers and encoding markers
-        (r'content[-_]?type\s*:\s*\S+|charset\S+|contenttransferencoding\s+\S+|contentdisposition\s+\S+', 
-         ' ', re.IGNORECASE),
-        (r'base64\s+\S+|quotedprintable\s+|filename\S+', ' '),
-        
-        # Remove encoded characters and HTML entities while preserving structure
-        (r'\b\d{3,4}[âãäåæ]\b', ' '),
-        (r'\b\d{4}[âãäåæ]\b', ' '),
-        (r'&#\d+;', ' '),
-        (r'&[a-z]+;', ' '),
-        (r'\b\d+[âãäåæ]\d+\b', ' '),
-        (r'[âãäåæ]\s*\d+', ' '),
-        
-        # Clean specific technical patterns
-        (r'(?:charset|encoding|content-type)=["\']?[\w-]+["\']?', ' '),
-        
-        # Remove obviously malformed email addresses while keeping valid ones
-        (r'\S+@\S+\.\S+(?:\s+@\s+|\s+\.\s+)\S+', ' '),
-        
-        # Remove multiple spaces while preserving single newlines
-        (r' +', ' '),
-        (r'\n\n+', '\n\n')
-    ]
-    
-    # Apply all cleaning patterns
-    for pattern in patterns_to_remove:
-        if len(pattern) == 2:
-            text = re.sub(pattern[0], pattern[1], text)
-        else:
-            text = re.sub(pattern[0], pattern[1], text, flags=pattern[2])
-    
-    # Preserve sentence structure by ensuring proper spacing around punctuation
-    text = re.sub(r'\s+([.,!?])', r'\1', text)  # Remove spaces before punctuation
-    text = re.sub(r'([.,!?])(?=[^\s])', r'\1 ', text)  # Add space after punctuation if missing
-    
-    return text.strip()
