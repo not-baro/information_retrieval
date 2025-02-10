@@ -21,7 +21,7 @@ def preprocess_text_for_lda(text):
         'subject', 'forwarded', 'message', 'original', 'mail', 'email', 'sent', 
         'received', 'from', 'to', 'cc', 'bcc', 'reply', 'forward',
         
-        # Remove specific problematic terms we're seeing
+        # Remove specific problematic terms 
         'qzsoftdirectmailseperator', 'ivmnmwqldoui', 'psmswqhdzsynwz', 
         'wyzcosnmxifdpi', 'multipart', 'mime',
 

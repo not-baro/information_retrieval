@@ -25,20 +25,21 @@ def save_lda_model(dataset, output_folder, lda, lda_topics, lda_coherence, perpl
     """
     Save the LDA model, topics, and metrics in separate files within a timestamped subfolder.
     
-    :param dataset: Name of the dataset (used to create the output folder).
-    :param output_folder: Main output folder.
-    :param lda: Trained LDA model.
-    :param lda_topics: List of extracted topics.
-    :param lda_coherence: Coherence of the LDA model.
-    :param perplexity: Perplexity of the LDA model.
-    :param topic_diversity: Diversity of the topics.
-    :param lda_time: Execution time of the LDA model.
-    :param n_components: Number of topics extracted.
-    :param max_df: Maximum document frequency for the CountVectorizer.
-    :param min_df: Minimum document frequency for the CountVectorizer.
-    :param stop_words: Stop words used during vectorization.
-    :param max_iter: Maximum number of iterations for the LDA algorithm.
-    :param random_state: Random state for reproducibility.
+    Args:
+    dataset: Name of the dataset (used to create the output folder).
+    output_folder: Main output folder.
+    lda: Trained LDA model.
+    lda_topics: List of extracted topics.
+    lda_coherence: Coherence of the LDA model.
+    perplexity: Perplexity of the LDA model.
+    topic_diversity: Diversity of the topics.
+    lda_time: Execution time of the LDA model.
+    n_components: Number of topics extracted.
+    max_df: Maximum document frequency for the CountVectorizer.
+    min_df: Minimum document frequency for the CountVectorizer.
+    stop_words: Stop words used during vectorization.
+    max_iter: Maximum number of iterations for the LDA algorithm.
+    random_state: Random state for reproducibility.
     """
     
     # Define the output folder path with a timestamped subfolder

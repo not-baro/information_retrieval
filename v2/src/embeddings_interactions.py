@@ -13,9 +13,10 @@ from utils import save_df
 def run_embeddings_chat(df):
     """
     Run embeddings for chat dialogues.
-    
-    :param df: DataFrame containing chat dialogues
-    :return: NetworkX graph and interactions DataFrame
+    Args:
+        df: DataFrame containing chat dialogues
+    Returns:
+        NetworkX graph and interactions DataFrame
     """
     df.rename(columns={"Content": "Message"}, inplace=True)
 
@@ -75,8 +76,9 @@ def draw_interaction_network(G, title="Question-Response Interaction Network"):
     """
     Draw the question-response interaction network.
 
-    :param G: NetworkX graph object representing the interaction network.
-    :param title: Title of the plot.
+    Args:
+        G: NetworkX graph object representing the interaction network.
+        title: Title of the plot.
     """
     plt.figure(figsize=(10, 6))
     pos = nx.spring_layout(G)
@@ -181,7 +183,10 @@ def visualize_dialogue_patterns(G, interactions_df, title_prefix="Email"):
 def analyze_communities(G):
     """
     Analyze the communities in the interaction graph using alternative algorithms.
-    Returns a dictionary mapping nodes to their communities.
+    Args:
+        G: NetworkX graph of interactions
+    Returns:
+        Dictionary mapping nodes to their communities.
     """
     try:
         # Method 1: Girvan-Newman
@@ -208,6 +213,11 @@ def analyze_communities(G):
 def draw_community_network(G, partition, title="Communication Network with Communities"):
     """
     Display the graph with communities highlighted by different colors.
+    
+    Args:
+        G: NetworkX graph of interactions
+        partition: Dictionary mapping nodes to their communities
+        title: Title of the plot
     """
     plt.figure(figsize=(12, 8))
     pos = nx.spring_layout(G)

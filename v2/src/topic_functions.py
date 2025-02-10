@@ -16,9 +16,13 @@ from wordcloud import WordCloud
 def load_lda_model(dataset, output_folder):
     """
     Load the LDA model, topics, and metrics from files.
-    :param dataset: Name of the dataset (used to create the output folder).
-    :param output_folder: Main output folder.
-    :return: Loaded LDA model, topics, and metrics.
+    
+    Args:
+    dataset: Name of the dataset (used to create the output folder).
+    output_folder: Main output folder.
+    
+    Returns:
+    Loaded LDA model, topics, and metrics.
     """
     # Define the output folder path
     output_folder = os.path.join(output_folder, dataset)
@@ -59,12 +63,13 @@ def run_lda(texts, n_components=3, max_df=0.95, min_df=2, stop_words='english', 
     """
     Run LDA on a given list of texts with specified parameters.
 
-    :param texts: List of preprocessed text documents.
-    :param n_components: Number of topics to extract.
-    :param max_df: Maximum document frequency for the CountVectorizer.
-    :param min_df: Minimum document frequency for the CountVectorizer.
-    :param stop_words: Stop words to remove during vectorization.
-    :param max_iter: Maximum number of iterations for the LDA algorithm.
+    Args:
+    texts: List of preprocessed text documents.
+    n_components: Number of topics to extract.
+    max_df: Maximum document frequency for the CountVectorizer.
+    min_df: Minimum document frequency for the CountVectorizer.
+    stop_words: Stop words to remove during vectorization.
+    max_iter: Maximum number of iterations for the LDA algorithm.
     :param random_state: Random state for reproducibility.
     :return: LDA model, topics, coherence score, perplexity, topic diversity, and execution time.
     """
@@ -112,11 +117,12 @@ def get_topic_assignments_lda(df, lda, vectorizer, lda_texts, n_components):
     """
     Get topic assignments for each document using LDA.
     
-    :param df: DataFrame containing the documents
-    :param lda: Trained LDA model
-    :param vectorizer: CountVectorizer used for the LDA model
-    :param lda_texts: List of preprocessed text documents
-    :param n_components: Number of topics
+    Args:
+    df: DataFrame containing the documents
+    lda: Trained LDA model
+    vectorizer: CountVectorizer used for the LDA model
+    lda_texts: List of preprocessed text documents
+    n_components: Number of topics
     :return: DataFrame with document IDs and their dominant topics
     """
     # Get topic assignments for each document
@@ -148,9 +154,10 @@ def save_bertopic_model(dataset, output_folder, results, timestamp):
     """
     Save the BERTopic model, topics, and metrics in separate files within a timestamped subfolder.
     
-    :param dataset: Name of the dataset (used to create the output folder).
-    :param output_folder: Main output folder.
-    :param results: Dictionary containing model, topics, topic_info, and metrics from run_bertopic.
+    Args:
+    dataset: Name of the dataset (used to create the output folder).
+    output_folder: Main output folder.
+    results: Dictionary containing model, topics, topic_info, and metrics from run_bertopic.
     """
     
     # Define the output folder path with a timestamped subfolder
@@ -203,10 +210,13 @@ def run_bertopic(texts, n_topics=None, top_n_topics=5):
     """
     Run BERTopic on a given list of texts and reduce the number of topics.
 
-    :param texts: List of preprocessed text documents.
-    :param n_topics: Desired number of topics after reduction. If None, no reduction is applied.
-    :param top_n_topics: Number of top topics to display.
-    :return: Dictionary containing model, topics, and BERTopic-specific metrics.
+    Args:
+    texts: List of preprocessed text documents.
+    n_topics: Desired number of topics after reduction. If None, no reduction is applied.
+    top_n_topics: Number of top topics to display.
+    
+    Returns:
+    Dictionary containing model, topics, and BERTopic-specific metrics.
     """
     # Start timing
     start_time = time.time()
